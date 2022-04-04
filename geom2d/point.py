@@ -1,4 +1,5 @@
 import math
+from geom2d import nums
 from geom2d.vector import Vector
 
 class Point:
@@ -26,12 +27,13 @@ class Point:
         scaled_vec = vector.scaled_by(times)
         return Point(self.x + scaled_vec.u, self.y + scaled_vec.v)
 
+    def __eq__(self,other):
+        if self is other:
+            return True
+        if not isinstance(other,Point):
+            return False
+        return nums.are_close_enough(self.x, other.x) and \
+            nums.are_close_enough(self.y, other.y)
 
-
-
-
-# p = Point(1,3)
-# q = Point(2,4)
-
-# print((q-p).__dict__)
-# print((p+q).__dict__)
+    def __str__(self):
+        return f'({self.x},{self.y})'
