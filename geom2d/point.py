@@ -22,6 +22,12 @@ class Point:
         new_y = self.y - other.y
         return Vector(new_x,new_y)
 
+    def displaced(self, vector:Vector, times=1):
+        scaled_vec = vector.scaled_by(times)
+        return Point(self.x + scaled_vec.u, self.y + scaled_vec.v)
+
+
+
 
 
 # p = Point(1,3)

@@ -13,3 +13,6 @@ class Vector:
         new_u = self.u - other.u
         new_v = self.v - other.v
         return Vector(new_u, new_v)
+
+    def scaled_by(self, factor):
+        return Vector(factor*self.u, factor*self.v)
