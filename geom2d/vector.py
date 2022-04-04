@@ -1,5 +1,4 @@
 import math
-from xml.sax.handler import property_declaration_handler
 from geom2d import nums
 
 class Vector:
