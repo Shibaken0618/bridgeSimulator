@@ -52,5 +52,17 @@ class TestSegment(unittest.TestCase):
         actual = self.segment.closest_point_to(p)
         self.assertEqual(expected, actual)
 
+    def test_parrallel_segments_no_intersection(self):
+        other = Segment(Point(200,0), Point(0,200))
+        actual = self.segment.intersection_with(other)
+        self.assertIsNone(actual)
+
+    def test_segments_intersection(self):
+        other = Segment(Point(0,0), Point(400,400))
+        expected = Point(200,200)
+        actual = self.segment.intersection_with(other)
+        self.assertEqual(expected, actual)
+
+        
 
     

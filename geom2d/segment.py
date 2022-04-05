@@ -42,4 +42,30 @@ class Segment:
             return self.end
         return self.start.displaced(d,vs)
 
-    
+    def distance_to(self, p:Point):
+        return p.distance_to(self.closest_point_to(p))
+
+    def intersection_with(self, other):
+        d1,d2 = self.direction_vector, other.direction_vector
+        if d1.is_parallel_to(d2):
+            return None
+        cross_prod = d1.cross(d2)
+        delta = other.start - self.start
+        t1 = (delta.u*d2.v - delta.v*d2.u)/cross_prod
+        t2 = (delta.u*d1.v - delta.v*d1.u)/cross_prod
+        if tparam.is_valid(t1) and tparam.is_valid(t2):
+            return self.point_at(t1)
+        else:
+            return None
+
+    def __eq__(self,other):
+        if self is other:
+            return True
+        if not isinstance(other, Segment):
+            return False
+        return self.start == other.start \
+            and self.end == other.end
+
+    def __str__(self):
+        return f'segment from {self.start} to {self.end}'
+        
