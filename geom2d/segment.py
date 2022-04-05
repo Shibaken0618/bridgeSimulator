@@ -1,5 +1,6 @@
 from geom2d.point import Point
 from geom2d.vectors import make_vector_between, make_versor_between
+from geom2d import tparam
 
 class Segment:
 
@@ -22,3 +23,12 @@ class Segment:
     @property
     def length(self):
         return self.start.distance_to(self.end)
+
+    def point_at(self, t:float):
+        tparam.ensure_valid(t)
+        return self.start.displaced(self.direction_vector,t)
+
+    @property
+    def middle(self):
+        return self.point_at(tparam.MIDDLE)
+        
