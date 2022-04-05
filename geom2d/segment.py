@@ -31,4 +31,15 @@ class Segment:
     @property
     def middle(self):
         return self.point_at(tparam.MIDDLE)
-        
+
+    def closest_point_to(self, p:Point):
+        v = make_vector_between(self.start, p)
+        d = self.direction_versor
+        vs = v.projection_over(d)
+        if vs < 0:
+            return self.start
+        if vs > self.length:
+            return self.end
+        return self.start.displaced(d,vs)
+
+    

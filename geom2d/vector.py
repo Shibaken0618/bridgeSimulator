@@ -34,7 +34,7 @@ class Vector:
         return self.normalized().scaled_by(length)
 
     def dot(self,other): # => num
-        return (self.u*self.v) + (other.u*other.v)
+        return (self.u*other.u) + (self.v*other.v)
 
     def projection_over(self,direction):
         return self.dot(direction.normalized())

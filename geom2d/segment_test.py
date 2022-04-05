@@ -33,3 +33,24 @@ class TestSegment(unittest.TestCase):
         expected = Point(200,200)
         actual = self.segment.middle
         self.assertEqual(expected,actual)
+
+    def test_closest_point_is_start(self):
+        p = Point(500,20)
+        expected = self.start
+        actual = self.segment.closest_point_to(p)
+        self.assertEqual(expected, actual)
+
+    def test_closets_point_is_end(self):
+        p = Point(20,500)
+        expected = self.end
+        actual = self.segment.closest_point_to(p)
+        self.assertEqual(expected, actual)
+
+    def test_closest_point_is_middle(self):
+        p = Point(250, 250)
+        expected = Point(200, 200)
+        actual = self.segment.closest_point_to(p)
+        self.assertEqual(expected, actual)
+
+
+    
