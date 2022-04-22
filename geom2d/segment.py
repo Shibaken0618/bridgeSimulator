@@ -1,6 +1,7 @@
 from geom2d.point import Point
 from geom2d.vectors import make_vector_between, make_versor_between
 from geom2d import tparam
+from geom2d.line import Line
 
 class Segment:
 
@@ -69,3 +70,5 @@ class Segment:
     def __str__(self):
         return f'segment from {self.start} to {self.end}'
         
+    def bisector(self):
+        return Line(self.middle, self.normal_versor)
