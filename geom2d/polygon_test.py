@@ -25,3 +25,17 @@ class TestPolygon(unittest.TestCase):
         expected = Point(10,10)
         actual = self.polygon.centroid
         self.assertEqual(expected,actual)
+
+    def test_doesnt_contain_point(self):
+        point = Point(15,20)
+        self.assertFalse(self.polygon.contains_point(point))
+
+    def test_contains_point(self):
+        point = Point(15,10)
+        self.assertTrue(self.polygon.contains_point(point))
+
+    def test_contains_vertex(self):
+        self.assertTrue(
+            self.polygon.contains_point(self.vertices[0])
+        )
+    
