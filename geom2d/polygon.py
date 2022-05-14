@@ -40,3 +40,10 @@ class Polygon:
             [v1.angle_to(v2) for v1, v2 in paired_vecs]
         )
         return are_close_enough(angle_sum, 2*math.pi)
+
+    def __eq__(self,other):
+        if self is other:
+            return True
+        if not isinstance(other,Polygon):
+            return False
+        return self.vertices == other.vertices
