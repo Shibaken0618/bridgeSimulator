@@ -20,3 +20,8 @@ class TestPolygon(unittest.TestCase):
         ]
         actual = self.polygon.sides()
         self.assertEqual(expected,actual)
+
+    def test_centroid(self):
+        expected = Point(10,10)
+        actual = self.polygon.centroid
+        self.assertEqual(expected,actual)

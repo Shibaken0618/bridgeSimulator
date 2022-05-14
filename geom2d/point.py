@@ -14,9 +14,10 @@ class Point:
 
 
     def __add__(self,other):
-        new_x = self.x + other.x
-        new_y = self.y + other.y
-        return Vector(new_x,new_y)
+        return Point(
+            self.x + other.x,
+            self.y + other.y
+        )
 
     def __sub__(self,other):
         new_x = self.x - other.x
