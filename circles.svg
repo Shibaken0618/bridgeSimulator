@@ -1,0 +1,8 @@
+<svg xmlns="http://www.w3.org/2000/svg" 
+    width="500" 
+    height="500"
+    transform="matrix(1 0 0 -1 0 0)">
+    <circle cx="200" cy="200" r="100" fill="#ff000077" />
+    <circle cx="300" cy="200" r="100" fill="#00ff0077" />
+    <circle cx="250" cy="300" r="100" fill="#0000ff77" />
+</svg>
