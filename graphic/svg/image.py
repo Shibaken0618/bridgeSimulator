@@ -24,7 +24,7 @@ def __default_viewbox_rect(size: Size):
 def __viewbox_from_rect(rect: Rect):
     x = rect.origin.x
     y = rect.origin.y
-    width = rect.origin.width
+    width = rect.size.width
     height = rect.size.height
     return f'{x} {y} {width} {height}'
 
