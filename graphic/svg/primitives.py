@@ -8,7 +8,7 @@ __rect_template = read_template('rect.txt')
 __circle_template = read_template('circle.txt')
 __polygon_template = read_template('polygon.txt')
 __polyline_template = read_template('polyline.txt')
-__text_template = read_template('text')
+__text_template = read_template('text.txt')
 
 def segment(seg: Segment, attributes=()):
     return __segment_template \
