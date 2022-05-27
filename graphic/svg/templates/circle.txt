@@ -1,2 +1,1 @@
-<circle cx="{{cx}}" cy="{{cy}}"
-    r="{{r}}" {{attrs}}/>
+<circle cx="{{cx}}" cy="{{cy}}" r="{{r}}" {{attrs}}/>
