@@ -25,4 +25,3 @@ def font_family(font: str):
 
 def attrs_to_str(attrs_list: List[str]):
     return ' '.join(attrs_list)
-
