@@ -1,5 +1,5 @@
 from typing import List
-from geom2d import Point, Segment, Rect, Circle, Polygon
+from geom2d import Point, Segment, Rect, Circle, Polygon, Vector
 from graphic.svg.attributes import attrs_to_str
 from graphic.svg.read import read_template
 
@@ -8,6 +8,7 @@ __rect_template = read_template('rect.txt')
 __circle_template = read_template('circle.txt')
 __polygon_template = read_template('polygon.txt')
 __polyline_template = read_template('polyline.txt')
+__text_template = read_template('text')
 
 def segment(seg: Segment, attributes=()):
     return __segment_template \
@@ -44,3 +45,12 @@ def polyline(points: List[Point], attributes=()):
     return __polyline_template \
         .replace('{{points}}', __format_points(points)) \
         .replace('{{attrs}}', attrs_to_str(attributes))
+
+def text(txt: str, pos: Point, disp: Vector, attrs_list=()):
+    return __text_template \
+        .replace('{{x}}', str(pos.x)) \
+        .replace('{{y}}', str(pos.y)) \
+        .replace('{{dx}}', str(disp.u)) \
+        .replace('{{dy}}', str(disp.v)) \
+        .replace('{{text}}', txt) \
+        .replace('{{attrs}}', attrs_to_str(attrs_list))
