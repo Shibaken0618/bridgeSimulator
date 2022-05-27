@@ -9,6 +9,7 @@ __circle_template = read_template('circle.txt')
 __polygon_template = read_template('polygon.txt')
 __polyline_template = read_template('polyline.txt')
 __text_template = read_template('text.txt')
+__group_template = read_template('group.txt')
 
 def segment(seg: Segment, attributes=()):
     return __segment_template \
@@ -54,3 +55,30 @@ def text(txt: str, pos: Point, disp: Vector, attrs_list=()):
         .replace('{{dy}}', str(disp.v)) \
         .replace('{{text}}', txt) \
         .replace('{{attrs}}', attrs_to_str(attrs_list))
+
+def group(primitives: List[str], attributes=()):
+    return __group_template \
+        .replace('{{content}}', '\n'.join(primitives)) \
+        .replace('{{attrs}}', attrs_to_str(attributes))
+
+def arrow(
+    _segment: Segment,
+    length: float,
+    height: float,
+    attributes=()):
+
+    director = _segment.direction_vector
+    v_1 = director.opposite().with_length(length)
+    v_h1 = director.perpendicular().with_length(height/2.0)
+    v_h2 = v_h1.opposite()
+    return group(
+        [
+            segment(_segment),
+            polyline([
+                _segment.end.displaced(v_1 + v_h1),
+                _segment.end,
+                _segment.end.displaced(v_1 + v_h2)
+            ])
+        ],
+        attributes
+    )
