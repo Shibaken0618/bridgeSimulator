@@ -1,1 +1,1 @@
-<polyline points='{{points}}" {{attrs}}/>
+<polyline points="{{points}}" {{attrs}}/>
