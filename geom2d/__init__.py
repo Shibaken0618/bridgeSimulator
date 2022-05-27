@@ -8,10 +8,11 @@ from .line import Line
 from .nums import *
 from .open_interval import OpenInterval
 from .polygon import Polygon
+from .polygons import *
 from .rect import Rect
 from .rects import *
 from .segment import Segment
 from .size import Size
 from .tparam import *
-from .affine_transf import * 
+from .affine_transf import *
 from .affine_transforms import *
