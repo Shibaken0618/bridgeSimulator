@@ -22,11 +22,10 @@ def rectangle(rect: Rect, attributes=()):
         .replace('{{height}}', str(rect.size.height)) \
         .replace('{{attrs}}', attrs_to_str(attributes))
 
-    def circle(circ: Circle, attributes=()):
-        return __circle_template \
-            .replace('{{cx}}', str(circ.center.x)) \
-            .replace('{{cy}}', str(circ.center.y)) \
-            .replace('{{r}}', str(circ.radius)) \
-            .replace('{{attrs}}', attrs_to_str(attributes))
-
+def circle(circ: Circle, attributes=()):
+    return __circle_template \
+        .replace('{{cx}}', str(circ.center.x)) \
+        .replace('{{cy}}', str(circ.center.y)) \
+        .replace('{{r}}', str(circ.radius)) \
+        .replace('{{attrs}}', attrs_to_str(attributes)) \
     
